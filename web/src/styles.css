@@ -1,0 +1,471 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  font-size: 14px;
+  color: #1f2329;
+  background: #f2f3f5;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #8f959e;
+}
+
+/* 登录页 */
+.login-page {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 32px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.login-card h1 {
+  font-size: 18px;
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+.login-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #646a73;
+}
+
+.login-card input {
+  padding: 8px 10px;
+  border: 1px solid #dee0e3;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #3370ff;
+}
+
+/* 布局 */
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+  height: 48px;
+  background: #fff;
+  border-bottom: 1px solid #dee0e3;
+}
+
+.brand {
+  font-weight: 600;
+}
+
+.bucket-info {
+  color: #646a73;
+  flex: 1;
+}
+
+.error-banner {
+  background: #fde2e2;
+  color: #d83931;
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.panes {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  min-height: 0;
+}
+
+.pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #dee0e3;
+  min-width: 0;
+}
+
+.pane.drag-over {
+  border-color: #3370ff;
+  box-shadow: 0 0 0 2px rgba(51, 112, 255, 0.2);
+}
+
+.pane-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid #eff0f1;
+}
+
+.pane-header h2 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.toolbar {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.filter {
+  width: 110px;
+  padding: 4px 8px;
+  border: 1px solid #dee0e3;
+  border-radius: 6px;
+}
+
+.breadcrumb {
+  padding: 6px 12px;
+  font-size: 13px;
+  color: #646a73;
+  border-bottom: 1px solid #eff0f1;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.breadcrumb a {
+  color: #3370ff;
+  cursor: pointer;
+}
+
+.breadcrumb .sep {
+  margin: 0 4px;
+  color: #8f959e;
+}
+
+.pane-body {
+  flex: 1;
+  overflow: auto;
+}
+
+.pane-footer {
+  padding: 6px 12px;
+  font-size: 12px;
+  color: #8f959e;
+  border-top: 1px solid #eff0f1;
+}
+
+.transfer-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* 按钮 */
+.btn {
+  padding: 5px 12px;
+  border: 1px solid #dee0e3;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  border-color: #3370ff;
+  color: #3370ff;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: #3370ff;
+  border-color: #3370ff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #245bdb;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  border-color: #d83931;
+  color: #d83931;
+}
+
+.btn-ghost {
+  border: none;
+}
+
+.btn-small {
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+/* 文件表格 */
+.file-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.file-table th {
+  text-align: left;
+  padding: 6px 8px;
+  color: #8f959e;
+  font-weight: normal;
+  border-bottom: 1px solid #eff0f1;
+  position: sticky;
+  top: 0;
+  background: #fff;
+}
+
+.file-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #f5f6f7;
+}
+
+.file-table tr.selected td {
+  background: #e6efff;
+}
+
+.col-check {
+  width: 28px;
+}
+
+.col-size {
+  width: 90px;
+}
+
+.col-time {
+  width: 150px;
+}
+
+.col-actions {
+  width: 90px;
+}
+
+.col-name {
+  cursor: default;
+  max-width: 0;
+}
+
+.file-icon {
+  margin-right: 6px;
+}
+
+.file-name {
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  max-width: calc(100% - 28px);
+}
+
+.empty {
+  text-align: center;
+  color: #8f959e;
+  padding: 24px 0;
+}
+
+.load-more {
+  display: block;
+  margin: 8px auto;
+}
+
+.error-text {
+  color: #d83931;
+  font-size: 12px;
+  padding: 4px 12px;
+}
+
+.info-text {
+  color: #3370ff;
+  font-size: 12px;
+  padding: 4px 12px;
+}
+
+/* 任务面板 */
+.jobs-panel {
+  background: #fff;
+  border-top: 1px solid #dee0e3;
+  max-height: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.jobs-panel.collapsed {
+  max-height: none;
+}
+
+.jobs-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+}
+
+.jobs-body {
+  overflow-y: auto;
+  padding: 0 16px 8px;
+}
+
+.job-row {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f5f6f7;
+  align-items: flex-start;
+}
+
+.job-dir {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  background: #eff0f1;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.job-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.job-bar {
+  height: 8px;
+  background: #eff0f1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.job-bar-fill {
+  height: 100%;
+  background: #3370ff;
+  transition: width 0.5s;
+}
+
+.job-bar-fill.status-done {
+  background: #34c724;
+}
+
+.job-bar-fill.status-error {
+  background: #d83931;
+}
+
+.job-bar-fill.status-cancelled {
+  background: #8f959e;
+}
+
+.job-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #646a73;
+  margin-top: 4px;
+}
+
+.status-text.status-done {
+  color: #34c724;
+}
+
+.status-text.status-error {
+  color: #d83931;
+}
+
+.status-text.status-running {
+  color: #3370ff;
+}
+
+.job-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.job-items {
+  margin-top: 6px;
+  background: #f7f8fa;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.job-item {
+  display: flex;
+  gap: 10px;
+  padding: 2px 0;
+}
+
+.job-item-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* OSS bucket 列表与对象列表 */
+.object-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.object-list.drag-over {
+  box-shadow: inset 0 0 0 2px rgba(51, 112, 255, 0.35);
+  border-radius: 0 0 8px 8px;
+}
+
+.object-list .toolbar {
+  padding: 0;
+}
+
+.col-region {
+  width: 130px;
+}
+
+.col-storage {
+  width: 90px;
+}
+
+.bucket-link {
+  color: #3370ff;
+  cursor: pointer;
+}

@@ -1,0 +1,13 @@
+services:
+  oss-web:
+    build: .
+    container_name: oss-web
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    env_file: .env
+    volumes:
+      # 本地数据目录挂载到容器 /data（即 LOCAL_ROOT）
+      - ./data:/data
+      # 如需暴露多个宿主目录，可挂载到 /data 的子路径，例如：
+      # - /srv/downloads:/data/downloads

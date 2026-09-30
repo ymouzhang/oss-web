@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/api.ts","./src/main.tsx","./src/components/FileTable.tsx","./src/components/JobsPanel.tsx","./src/components/LocalPane.tsx","./src/components/LoginView.tsx","./src/components/oss/BucketList.tsx","./src/components/oss/ObjectList.tsx","./src/components/oss/OssPane.tsx"],"version":"5.9.3"}
