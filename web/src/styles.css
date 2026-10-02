@@ -262,6 +262,19 @@ body {
   background: #e6efff;
 }
 
+/* 可进入的行（文件夹 / bucket）：整行可点击并给出视觉暗示 */
+.file-table tr.dir-row {
+  cursor: pointer;
+}
+
+.file-table tr.dir-row:hover td {
+  background: #f5f7fa;
+}
+
+.file-table tr.dir-row .file-name {
+  color: #3370ff;
+}
+
 .col-check {
   width: 28px;
 }

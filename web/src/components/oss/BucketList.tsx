@@ -64,8 +64,8 @@ export default function BucketList({ breadcrumb, onEnter }: Props) {
           </thead>
           <tbody>
             {visible.map((b) => (
-              <tr key={b.name} onDoubleClick={() => onEnter(b.name)}>
-                <td className="col-name" onClick={() => onEnter(b.name)}>
+              <tr key={b.name} className="dir-row" onClick={() => onEnter(b.name)}>
+                <td className="col-name">
                   <span className="file-icon">🪣</span>
                   <span className="file-name bucket-link">{b.name}</span>
                 </td>

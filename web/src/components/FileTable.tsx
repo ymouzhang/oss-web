@@ -67,17 +67,19 @@ export default function FileTable({
         {visible.map((r) => (
           <tr
             key={r.id}
-            className={selection.includes(r.id) ? "selected" : ""}
-            onDoubleClick={() => r.isDir && onOpen(r)}
+            className={
+              (selection.includes(r.id) ? "selected" : "") + (r.isDir ? " dir-row" : "")
+            }
+            onClick={() => (r.isDir ? onOpen(r) : toggle(r.id))}
           >
-            <td className="col-check">
+            <td className="col-check" onClick={(e) => e.stopPropagation()}>
               <input
                 type="checkbox"
                 checked={selection.includes(r.id)}
                 onChange={() => toggle(r.id)}
               />
             </td>
-            <td className="col-name" onClick={() => r.isDir && onOpen(r)}>
+            <td className="col-name">
               <span className="file-icon">{r.isDir ? "📁" : "📄"}</span>
               <span className="file-name" title={r.name}>
                 {r.name}
@@ -85,7 +87,11 @@ export default function FileTable({
             </td>
             <td className="col-size">{r.isDir ? "-" : formatBytes(r.size)}</td>
             <td className="col-time">{formatTime(r.time)}</td>
-            {rowActions && <td className="col-actions">{rowActions(r)}</td>}
+            {rowActions && (
+              <td className="col-actions" onClick={(e) => e.stopPropagation()}>
+                {rowActions(r)}
+              </td>
+            )}
           </tr>
         ))}
         {!loading && visible.length === 0 && (
